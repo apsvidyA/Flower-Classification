@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-7">
+    <h2>Select an Image</h2>
+    <br>
+    <div class="row">
+      <!-- <div class="col-md-6">
+        <p><img src="https://gitlab.com/apsvidyA/flower-classification/-/blob/main/test/query1.jpg" style="height: 500px;" class="img"></p>
+        <p><img src="http://static.pyimagesearch.com.s3-us-west-2.amazonaws.com/vacation-photos/queries/103300.png" style="height: 250px;" class="img"></p>
+      </div>
+      <div class="col-md-6">
+        <p><img src="http://static.pyimagesearch.com.s3-us-west-2.amazonaws.com/vacation-photos/queries/127502.png" style="height: 250px;" class="img"></p>
+        <p><img src="http://static.pyimagesearch.com.s3-us-west-2.amazonaws.com/vacation-photos/queries/123600.png" style="height: 250px;" class="img"></p>
+      </div> -->
+      <input type='file' onchange="readURL(this);" />
+      <img id="blah" src="http://placehold.it/180" alt="your image" />
+
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <h2>Results</h2>
+    <br>
+    <table class="table" id="results-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="results">
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<script>
+  function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#blah')
+                      .attr('src', e.target.result);
+              };
+
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+</script>
+{% endblock %}
